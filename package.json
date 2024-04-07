@@ -10,7 +10,7 @@
   "scripts": {
     "start": "tsx src/index.ts",
     "test": "jest",
-    "build": "esbuild src/index.ts --bundle --platform=node --outfile=dist/index.js"
+    "build": "esbuild src/index.ts --bundle --platform=node --format=esm --outfile=dist/index.js"
   },
   "lint-staged": {
     "*.ts": [
