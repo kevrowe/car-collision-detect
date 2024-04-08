@@ -15,6 +15,7 @@ describe('mainMenu', () => {
     const simulation: Simulation = {
       fieldHeight: 3,
       fieldWidth: 3,
+      initialCars: [],
     }
 
     const mockCar: Car = {

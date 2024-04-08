@@ -16,6 +16,7 @@ describe('cliAddCar', () => {
     const simulation = {
       fieldWidth: 10,
       fieldHeight: 10,
+      initialCars: [],
     }
 
     const car = await cliAddCar(io, simulation)
@@ -42,6 +43,7 @@ describe('cliAddCar', () => {
     const simulation = {
       fieldWidth: 10,
       fieldHeight: 10,
+      initialCars: [],
     }
 
     const car = await cliAddCar(io, simulation)
