@@ -25,7 +25,6 @@ This project uses `esbuild`
 ## TODO
 
 - Add debug option which outputs a grid visualisation
-- End to End testing
 
 ## Assumptions
 
