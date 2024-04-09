@@ -2,7 +2,6 @@ import { type IO } from '../io'
 import { Car } from '../types/Car'
 import { Simulation } from '../types/Simulation'
 import { cliAddCar } from './addCar'
-import chalk from 'chalk'
 
 const mainMenu = async (io: IO, simulation: Simulation): Promise<Car[]> => {
   const cars: Car[] = []
@@ -19,9 +18,7 @@ const mainMenu = async (io: IO, simulation: Simulation): Promise<Car[]> => {
 
     if (usedCoords.has(`${newCar.x},${newCar.y}`)) {
       io.write(
-        chalk.red(
-          'Car already exists at this position. Please try a different car configuration.',
-        ),
+        'Car already exists at this position. Please try a different car configuration.',
         2,
       )
     } else {

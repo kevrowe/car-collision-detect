@@ -21,9 +21,14 @@ const program = async (rl: ReadlineInterface) => {
   while (restart) {
     io.write('Welcome to Auto Driving Car Simulation!', 2)
 
-    const gridSize = await io.read(
-      'Please enter the width and height of the simulation field in x y format: \n',
-    )
+    let gridSize: string = ''
+
+    while (gridSize.match(/^\d+ \d+$/) === null) {
+      gridSize = await io.read(
+        'Please enter the width and height of the simulation field in x y format: \n',
+      )
+    }
+
     const [x, y] = gridSize.split(' ').map((val) => parseInt(val, 10))
     simulation.fieldWidth = x
     simulation.fieldHeight = y

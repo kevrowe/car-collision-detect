@@ -24,12 +24,11 @@ This project uses `esbuild`
 
 ## TODO
 
-- Detect initial collision with cars starting in same location
-- Add debug visualisation
-- Validate field size input
+- Add debug option which outputs a grid visualisation
 - End to End testing
 
 ## Assumptions
 
-- Cars can start at the same location and immediately collide
 - Cars are considered collided when they both occupy the same cell on the field
+- Cars can share the same name
+- Cars cannot start in the same locations
