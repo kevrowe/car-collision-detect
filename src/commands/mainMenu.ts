@@ -2,6 +2,7 @@ import { type IO } from '../io'
 import { Car } from '../types/Car'
 import { Simulation } from '../types/Simulation'
 import { cliAddCar } from './addCar'
+import chalk from 'chalk'
 
 const mainMenu = async (io: IO, simulation: Simulation): Promise<Car[]> => {
   const cars: Car[] = []
@@ -11,8 +12,22 @@ const mainMenu = async (io: IO, simulation: Simulation): Promise<Car[]> => {
   io.write('[2] Run simulation')
   let option = await io.read('')
 
+  const usedCoords = new Set<string>()
+
   while (option === '1') {
-    cars.push(await cliAddCar(io, simulation))
+    const newCar = await cliAddCar(io, simulation)
+
+    if (usedCoords.has(`${newCar.x},${newCar.y}`)) {
+      io.write(
+        chalk.red(
+          'Car already exists at this position. Please try a different car configuration.',
+        ),
+        2,
+      )
+    } else {
+      cars.push(newCar)
+      usedCoords.add(`${newCar.x},${newCar.y}`)
+    }
 
     io.write(`Your current list of cars are:`)
     cars.forEach((car) => {

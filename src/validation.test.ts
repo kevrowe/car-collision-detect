@@ -1,6 +1,10 @@
 import { isValidCommands, isValidHeading, isValidPosition } from './validation'
 
 describe('isValidCommands', () => {
+  afterEach(() => {
+    jest.resetAllMocks()
+  })
+
   it('should return true for valid commands', () => {
     expect(isValidCommands('F')).toBe(true)
     expect(isValidCommands('L')).toBe(true)

@@ -27,6 +27,7 @@ This project uses `esbuild`
 - Detect initial collision with cars starting in same location
 - Add debug visualisation
 - Validate field size input
+- End to End testing
 
 ## Assumptions
 

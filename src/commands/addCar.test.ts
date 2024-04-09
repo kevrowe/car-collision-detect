@@ -2,6 +2,9 @@ import { IO } from '../io'
 import { cliAddCar } from './addCar'
 
 describe('cliAddCar', () => {
+  afterEach(() => {
+    jest.resetAllMocks()
+  })
   it('should add a car to the simulation with invalid followed by valid inputs', async () => {
     const inputs = ['A', '1 1 N', 'ASDA', 'FRFF']
 
