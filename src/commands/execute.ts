@@ -8,13 +8,13 @@ const moveCar = (car: Car): [number, number] => {
   let nextY = car.y
   switch (car.heading) {
     case 'N':
-      nextY -= 1
+      nextY += 1
       break
     case 'E':
       nextX += 1
       break
     case 'S':
-      nextY += 1
+      nextY -= 1
       break
     case 'W':
       nextX -= 1
@@ -84,20 +84,28 @@ const execute = (cars: Car[], simulation: Simulation): Result => {
           continue
         }
 
+        car.x = newX
+        car.y = newY
+
         if (grid[newY][newX] === ' ') {
           grid[y][x] = ' '
           grid[newY][newX] = car.name
-          car.x = newX
-          car.y = newY
 
           car.commands = car.commands.substring(1)
         } else {
-          const collidedCar = cars.find((c) => c.name === grid[newY][newX])
-          if (collidedCar) {
+          const stationaryCar = cars.find((c) => c.name === grid[newY][newX])
+          if (stationaryCar) {
             car.commands = ''
-            collidedCar.commands = ''
+            stationaryCar.commands = ''
+
             collisions.push({
-              name: [car.name, collidedCar.name],
+              name: [stationaryCar.name, car.name],
+              x: newX,
+              y: newY,
+              iteration,
+            })
+            collisions.push({
+              name: [car.name, stationaryCar.name],
               x: newX,
               y: newY,
               iteration,
@@ -123,4 +131,4 @@ const execute = (cars: Car[], simulation: Simulation): Result => {
   return { positions: cars, collisions }
 }
 
-export { execute }
+export { execute, moveCar, rotateLeft, rotateRight }

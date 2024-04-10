@@ -14,7 +14,7 @@
 ### Testing
 
 - `npm run test`: Run unit tests
-- `npm run test -- --watch`: Run tests on file changes
+- `npm run test:watch`: Run tests and listen for file changes
 
 ### Building
 
@@ -24,10 +24,11 @@ This project uses `esbuild`
 
 ## TODO
 
+- Ensure grid is X Y from BL to TR
+- Ensure car names are unique
 - Add debug option which outputs a grid visualisation
 
 ## Assumptions
 
 - Cars are considered collided when they both occupy the same cell on the field
-- Cars can share the same name
 - Cars cannot start in the same locations
