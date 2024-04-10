@@ -4,17 +4,22 @@
 
 ### Prerequisites
 
-- Node@20
+- `node@20` - NodeJS at version 20.x.x
+
+#### Optional
+
+- `nvm` - Node Version Manager, can be installed with homebrew
+- `nvm use` - Command to ensure you are using a compatible version of NodeJS
 
 ### Running locally
 
-1. `npm install`: Install dependencies
-2. `npm start`: Run application
+1. `npm install` - Install dependencies
+2. `npm start` - Run application
 
 ### Testing
 
-- `npm run test`: Run unit tests
-- `npm run test:watch`: Run tests and listen for file changes
+- `npm run test` - Run unit tests
+- `npm run test:watch` - Run tests and listen for file changes
 
 ### Building
 
