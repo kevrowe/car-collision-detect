@@ -12,17 +12,20 @@ const mainMenu = async (io: IO, simulation: Simulation): Promise<Car[]> => {
   let option = await io.read('')
 
   const usedCoords = new Set<string>()
+  const names = new Set<string>()
 
   while (option === '1') {
     const newCar = await cliAddCar(io, simulation)
 
-    if (usedCoords.has(`${newCar.x},${newCar.y}`)) {
+    if (usedCoords.has(`${newCar.x},${newCar.y}`) || names.has(newCar.name)) {
       io.write(
         'Car already exists at this position. Please try a different car configuration.',
         2,
       )
     } else {
       cars.push(newCar)
+
+      names.add(newCar.name)
       usedCoords.add(`${newCar.x},${newCar.y}`)
     }
 

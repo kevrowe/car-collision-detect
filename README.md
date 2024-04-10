@@ -24,8 +24,6 @@ This project uses `esbuild`
 
 ## TODO
 
-- Ensure grid is X Y from BL to TR
-- Ensure car names are unique
 - Add debug option which outputs a grid visualisation
 
 ## Assumptions
