@@ -19,7 +19,8 @@
 ### Testing
 
 - `npm run test` - Run unit tests
-- `npm run test:watch` - Run tests and listen for file changes
+- `npm run test:watch` - Run tests and listen for file changes (git required)
+- `npm run test:watchAll` - Run tests and listen for file changes (no git initialisation required)
 
 ### Building
 

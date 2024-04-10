@@ -11,6 +11,7 @@
     "start": "tsx src/index.ts",
     "test": "jest",
     "test:watch": "jest --watch",
+    "test:watchAll": "jest --watchAll",
     "build": "esbuild src/index.ts --bundle --platform=node --target=es2022 --format=esm --outfile=dist/index.js"
   },
   "lint-staged": {
