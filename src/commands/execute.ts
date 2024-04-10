@@ -94,6 +94,8 @@ const execute = (cars: Car[], simulation: Simulation): Result => {
           car.commands = car.commands.substring(1)
         } else {
           const stationaryCar = cars.find((c) => c.name === grid[newY][newX])
+          grid[y][x] = ' '
+
           if (stationaryCar) {
             car.commands = ''
             stationaryCar.commands = ''

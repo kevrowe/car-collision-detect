@@ -116,4 +116,47 @@ describe('execute', () => {
       ],
     })
   })
+  it('should execute the simulation with 3 cars and detect collisions', () => {
+    const simulation = { fieldWidth: 10, fieldHeight: 10 } as Simulation
+    const cars = [
+      { name: 'A', x: 0, y: 0, heading: 'N', commands: 'FFRFFFFRRL' } as Car,
+      { name: 'B', x: 3, y: 2, heading: 'E', commands: 'F' } as Car,
+      { name: 'C', x: 2, y: 2, heading: 'E', commands: 'LRLRLRLRFLRF' } as Car,
+    ]
+
+    const result = execute(cars, simulation)
+    expect(result).toEqual({
+      positions: [
+        expect.objectContaining({ name: 'A', x: 4, y: 2, heading: 'E' }),
+        expect.objectContaining({ name: 'B', x: 4, y: 2, heading: 'E' }),
+        expect.objectContaining({ name: 'C', x: 4, y: 2, heading: 'E' }),
+      ],
+      collisions: [
+        expect.objectContaining({
+          name: ['B', 'A'],
+          x: 4,
+          y: 2,
+          iteration: 7,
+        }),
+        expect.objectContaining({
+          name: ['A', 'B'],
+          x: 4,
+          y: 2,
+          iteration: 7,
+        }),
+        expect.objectContaining({
+          name: ['B', 'C'],
+          x: 4,
+          y: 2,
+          iteration: 12,
+        }),
+        expect.objectContaining({
+          name: ['C', 'B'],
+          x: 4,
+          y: 2,
+          iteration: 12,
+        }),
+      ],
+    })
+  })
 })

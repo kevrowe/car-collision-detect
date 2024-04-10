@@ -27,11 +27,12 @@ This project uses `esbuild`
 
 - `npm run build`: Produce a bundled build to the `dist/` folder
 
-## TODO
+## Future Developments
 
 - Add debug option which outputs a grid visualisation
+- Handle collisions where `n > 2` cars collide in a single cell
 
 ## Assumptions
 
+- When `n > 2` cars collide in a single cell, the latest arriving car will be considered to have collided with the earliest arriving car, interim arrivals will be ignored
 - Cars are considered collided when they both occupy the same cell on the field
-- Cars cannot start in the same locations
